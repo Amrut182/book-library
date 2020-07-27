@@ -1,6 +1,7 @@
 let myLibrary = [
     {title: "The Hobbit", author:"JRR Tolkien", pages: 120, read: "Yes"}
 ];
+let count = 0;
 
 console.log(myLibrary);
 
@@ -18,12 +19,14 @@ function book(title, author, pages, read ) {
 }
 
 function addToLibrary() {
-    let title1 = prompt("Enter title of the book");
-    let author1 = prompt("Enter author of the book");
-    let pages1 = prompt("Enter total no. of pages");
-    let read1 = prompt("Have you read the book? Yes/No");
-    let newBook = new book(title1, author1, pages1, read1);
+    let title = prompt("Enter title of the book");
+    let author = prompt("Enter author of the book");
+    let pages = prompt("Enter total no. of pages");
+    let read = prompt("Have you read the book? Yes/No");
+    let newBook = new book(title, author, pages, read);
     myLibrary.push(newBook);
+    count++;
+    render(count);
 }
 
 document.getElementById("add").onclick = function() {
@@ -31,10 +34,17 @@ document.getElementById("add").onclick = function() {
     console.log(myLibrary);
 }
 
-function createRecord(item) {
+function createRecord(item, size) {
     let record = document.createElement('div');
-    record.id = 'container';
-
-    container.appendChild(div);
-    turnOpaque(div);
+    record.id = `${size}`;
+    record.innerHTML = `<span id="book">${item.title} <br> ${item.author} <br> ${item.pages} <br> ${item.read} <br> <button>Remove</button></span>`;
+    container.appendChild(record);
 }
+
+function render(count) {
+    for(let i = count; i < myLibrary.length; i++) {
+        createRecord(myLibrary[i], i);
+    }
+}
+
+render(count);
