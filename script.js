@@ -34,10 +34,18 @@ document.getElementById("add").onclick = function() {
     console.log(myLibrary);
 }
 
+// document.getElementById("container").onclick = function() {
+//     // let id = document.querySelector("this.id");
+//     myLibrary.splice(id, 1);
+//     console.log(id);
+// }
+
 function createRecord(item, size) {
     let record = document.createElement('div');
     record.id = `${size}`;
-    record.innerHTML = `<span id="book">${item.title} <br> ${item.author} <br> ${item.pages} <br> ${item.read} <br> <button>Remove</button></span>`;
+    record.innerHTML = `<p>Book Title: ${item.title} <br>Author: 
+                ${item.author} <br>No. of Pages: ${item.pages} <br>Read? (Yes/No): ${item.read}
+                 <br> <button id="${size}">Remove</button></p>`;
     container.appendChild(record);
 }
 
@@ -46,5 +54,6 @@ function render(count) {
         createRecord(myLibrary[i], i);
     }
 }
+
 
 render(count);
