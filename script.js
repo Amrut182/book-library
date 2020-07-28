@@ -35,17 +35,31 @@ document.getElementById("add").onclick = function() {
 }
 
 function removeRecord(id) {
-    myLibrary.splice(id, 1);
-    let elem = document.getElementById(`${id}`);
-    elem.remove();
+    myLibrary.splice(id, 1); //removing from array
+    let elem = document.getElementById(`${id}`); 
+    elem.remove(); //removing object
+    count--;
 }
+
+// function ifRead(id, item) {
+//     // let x = document.getElementById(`${id}`);
+//     if(item === "Yes") {
+//         item = "No";
+//     }
+//     else if(item === "No") {
+//         item = "Yes";
+//     }
+// } 
 
 function createRecord(item, size) {
     let record = document.createElement('div');
     record.id = `${size}`;
+    let ifread = item.read; console.log(ifread);
     record.innerHTML = `<p>Book Title: ${item.title} <br>Author: 
-                ${item.author} <br>No. of Pages: ${item.pages} <br>Read? (Yes/No): ${item.read}
-                 <br> <button id="${size}" onclick="removeRecord(this.id)">Remove</button></p>`;
+                ${item.author} <br>No. of Pages: ${item.pages} <br> 
+                <button id="${size}" onclick="removeRecord(thils.id)">Remove</button> 
+                <button id="${size}">
+                Read(Yes/No)?: ${item.read}</button></p>`;
     container.appendChild(record);
 }
 
