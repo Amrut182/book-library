@@ -57,7 +57,7 @@ function createRecord(item, size) {
     let ifread = item.read; console.log(ifread);
     record.innerHTML = `<p>Book Title: ${item.title} <br>Author: 
                 ${item.author} <br>No. of Pages: ${item.pages} <br> 
-                <button id="${size}" onclick="removeRecord(thils.id)">Remove</button> 
+                <button id="${size}" onclick="removeRecord(this.id)">Remove</button> 
                 <button id="${size}">
                 Read(Yes/No)?: ${item.read}</button></p>`;
     container.appendChild(record);
