@@ -1,23 +1,48 @@
 html {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Optima', Courier, monospace, Helvetica, sans-serif;
     background: peachpuff;
 }
 
 h1 {
     text-align: center;
 }
-button {
 
+#add {
+    background-color: burlywood;
+    margin-left: 570px;
+}
+
+#add:hover{
+background-color:rgb(177, 138, 65);
+
+}
+button {
+    cursor:pointer;
+    background-color: peachpuff;
+    border: none;
+    margin: 4px;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    display: inline-block;
+    font-size: 20px;
+} 
+
+button:hover {
+background-color:rgb(177, 138, 65);
 }
 
 #container {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-size: larger;
     background-color: burlywood;
     border-radius: 1px;
-    width: 300px;
+    width: 400px;
     text-align: left;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 10px;
+    padding-left: 15px;
+    padding-top: 2px;
 }
