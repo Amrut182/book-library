@@ -3,11 +3,6 @@ let myLibrary = [
 ];
 let count = 0;
 
-console.log(myLibrary);
-
-function Book() {
-}
-
 function book(title, author, pages, read ) {
     this.title = title;
     this.author = author;
@@ -35,31 +30,35 @@ document.getElementById("add").onclick = function() {
 }
 
 function removeRecord(id) {
+    alert(myLibrary[id].read);
     myLibrary.splice(id, 1); //removing from array
     let elem = document.getElementById(`${id}`); 
     elem.remove(); //removing object
     count--;
 }
 
-// function ifRead(id, item) {
-//     // let x = document.getElementById(`${id}`);
-//     if(item === "Yes") {
-//         item = "No";
-//     }
-//     else if(item === "No") {
-//         item = "Yes";
-//     }
-// } 
+function toggle(id, realId){
+    console.log(id);
+    let item = myLibrary[realId].read;
+
+    if(document.getElementById(`${id}`).innerHTML=="Yes"){
+        item = "No"; console.log(item);
+        document.getElementById(`${id}`).innerHTML=item;
+    }
+
+    else if(document.getElementById(`${id}`).innerHTML=="No"){
+        item = "Yes"; console.log(item);
+        document.getElementById(`${id}`).innerHTML=item;
+    }
+}
 
 function createRecord(item, size) {
     let record = document.createElement('div');
     record.id = `${size}`;
-    let ifread = item.read; console.log(ifread);
     record.innerHTML = `<p>Book Title: ${item.title} <br>Author: 
-                ${item.author} <br>No. of Pages: ${item.pages} <br> 
-                <button id="${size}" onclick="removeRecord(this.id)">Remove</button> 
-                <button id="${size}">
-                Read(Yes/No)?: ${item.read}</button></p>`;
+                ${item.author} <br>No. of Pages: ${item.pages} <br>  
+                Read(Yes/No)?: <button id="a${size}" onclick="toggle(this.id, ${size});">${item.read}</button>
+                <button id="${size}" onclick="removeRecord(this.id)">Remove</button></p>`;
     container.appendChild(record);
 }
 
