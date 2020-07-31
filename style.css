@@ -7,9 +7,11 @@ h1 {
     text-align: center;
 }
 
+#btn {
+    text-align: center;
+}
 #add {
     background-color: burlywood;
-    margin-left: 570px;
 }
 
 #add:hover{
