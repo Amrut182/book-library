@@ -18,6 +18,12 @@ function addToLibrary() {
     let author = prompt("Enter author of the book");
     let pages = prompt("Enter total no. of pages");
     let read = prompt("Have you read the book? Yes/No");
+    while(true) {
+        if(read === 'Yes' || read === 'No') {
+            break;
+        } else read = prompt("Please enter 'Yes' or 'No'")
+    }
+    
     let newBook = new book(title, author, pages, read);
     myLibrary.push(newBook);
     count++;
