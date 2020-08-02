@@ -36,7 +36,6 @@ document.getElementById("add").onclick = function() {
 }
 
 function removeRecord(id) {
-    alert(myLibrary[id].read);
     myLibrary.splice(id, 1); //removing from array
     let elem = document.getElementById(`${id}`); 
     elem.remove(); //removing object
